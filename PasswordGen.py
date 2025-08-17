@@ -3,10 +3,9 @@ import string
 import os
 import json
 
-def generate_password(length):
-    
+def generate_password(length=20):
     characters = string.ascii_letters + string.digits + string.punctuation
-    password = ''.join(random.choice(characters) for i in range(20))
+    password = ''.join(random.choice(characters) for i in range(length))
     return password
 
 def save_password(password, use):
@@ -29,9 +28,8 @@ def save_password(password, use):
     print(f"Passwords saved to {file_path}")    
 
     
-length = 20
 use = input("Enter the use of the password: ")
-password = generate_password(length)
+password = generate_password()
 print(f"Generated password: {password}")
 
 save_password(password, use)
